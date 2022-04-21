@@ -11,7 +11,24 @@
   <!-- List of Input Items -->
 <ion-list>
   <ion-item *ngFor="let restaurant of restaurants">
-    <ion-label [routerLink]="['/about-restaurant', restaurant.id]">{{ restaurant.name }}</ion-label>
+    <ion-label 
+      [routerLink]="['/about-restaurant', restaurant.id]">{{ restaurant.name }}
+      <div *ngIf="restaurant.rating == 1">
+        <ion-icon name="star-outline"></ion-icon>
+      </div>
+      <div *ngIf="restaurant.rating == 2">
+        <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+      </div>
+      <div *ngIf="restaurant.rating == 3">
+        <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+      </div>
+      <div *ngIf="restaurant.rating == 4">
+        <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+      </div>
+      <div *ngIf="restaurant.rating == 5">
+        <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+      </div>
+    </ion-label>
     <ion-buttons>
       <ion-button [routerLink]="['/edit-restaurant', restaurant.id]" >
         <ion-icon slot="start" name="ellipsis-vertical-outline"></ion-icon>
