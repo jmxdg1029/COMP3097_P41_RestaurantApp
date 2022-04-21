@@ -9,7 +9,11 @@ const routes: Routes = [
   {
     path:'add-restaurant',
     loadChildren: () => import('./add-restaurant/add-rest/add-rest.module').then(m => m.AddRestPageModule)
+  },  {
+    path: 'details',
+    loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   }
+
 ];
 @NgModule({
   imports: [

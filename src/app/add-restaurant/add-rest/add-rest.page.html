@@ -31,14 +31,7 @@
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Rating (1-5)</ion-label>
-      <ion-select value=0 okTest="Okay" cancelText="Dismiss">
-        <ion-select-option value=0>0</ion-select-option>
-        <ion-select-option value=1>1</ion-select-option>
-        <ion-select-option value=2>2</ion-select-option>
-        <ion-select-option value=3>3</ion-select-option>
-        <ion-select-option value=4>4</ion-select-option>
-        <ion-select-option value=5>5</ion-select-option>
-      </ion-select> 
+      <ion-input formControlName="rating" min="1" max="5" type="number" ></ion-input>
     </ion-item>
     <ion-row>
       <ion-col>
