@@ -8,22 +8,26 @@
 </ion-header>
 
 <ion-content>
-  <form>
+  <form [formGroup]="restForm" (ngSubmit)="onSubmit()" novalidate>
     <ion-item lines="full">
       <ion-label position="floating">Name</ion-label>
-      <ion-input  type="text"></ion-input>
+      <ion-input formControlName="name" type="text"></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Address</ion-label>
-      <ion-input type="text" ></ion-input>
+      <ion-input formControlName="address"type="text" ></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Phone</ion-label>
-      <ion-input type="text" ></ion-input>
+      <ion-input formControlName="phone" type="text" ></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">description</ion-label>
-      <ion-textarea></ion-textarea>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Tags</ion-label>
+      <ion-textarea formControlName="tags"></ion-textarea>
     </ion-item>
     <ion-row>
       <ion-col>
