@@ -12,6 +12,10 @@ const routes: Routes = [
   },  {
     path: 'details',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
+  },
+  {
+    path: 'edit-rest',
+    loadChildren: () => import('./edit-rest/edit-rest.module').then( m => m.EditRestPageModule)
   }
 
 ];

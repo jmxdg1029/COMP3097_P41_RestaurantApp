@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>edit-rest</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form *ngIf="restaurantForm" [formGroup]="restaurantForm" (ngSubmit)="onSubmit()" novalidate>
+    <ion-item lines="full">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Address</ion-label>
+      <ion-input formControlName="address"type="text" ></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Phone</ion-label>
+      <ion-input formControlName="phoneNum" type="text" ></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">description</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Tags</ion-label>
+      <ion-textarea formControlName="tags"></ion-textarea>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Rating (1-5)</ion-label>
+      <ion-input formControlName="rating" min="1" max="5" type="number" ></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="success" expand="block">UPDATE RESTAURANT</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

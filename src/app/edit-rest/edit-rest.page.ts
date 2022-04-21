@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router} from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Restaurant } from '../model/restaurant';
 import { RestaurantService } from '../shared/restaurant.service';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.page.html',
-  styleUrls: ['./details.page.scss'],
+  selector: 'app-edit-rest',
+  templateUrl: './edit-rest.page.html',
+  styleUrls: ['./edit-rest.page.scss'],
 })
-export class DetailsPage implements OnInit {
-
+export class EditRestPage implements OnInit {
   restaurant: Restaurant;
   restaurantForm: FormGroup;
 
@@ -33,16 +32,22 @@ export class DetailsPage implements OnInit {
     this.navController.back();
   }
 
-  getControlLabel(type:string){
-    return this.restaurantForm.controls[type].value
-  }
-
-  deleteRest(id:number){
-    this.db.deleteRestaurant(id);
-    this.prevPage();
-  }
+  
   async ngOnInit() {
     await this.db.init()
+  }
+
+  onSubmit(){
+    this.db.editRestaurant({
+      id:this.restaurant.id,
+      name:this.restaurantForm.value.name,
+      address:this.restaurantForm.value.address,
+      description:this.restaurantForm.value.description,
+      phoneNum:this.restaurantForm.value.phoneNum,
+      tags:this.restaurantForm.value.tags,
+      rating:this.restaurantForm.value.rating
+    } as Restaurant)
+    this.prevPage()
   }
 
 }

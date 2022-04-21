@@ -29,6 +29,9 @@
       
       <ion-label type="text">Ratings: {{getControlLabel('rating')}}⭐</ion-label>
     </ion-item>
-    
+
+    <ion-button [routerLink]="['/edit-rest',restaurant.id]" color="warning" expand="block">Edit</ion-button>
+    <ion-button (click)="deleteRest(restaurant.id)" color="danger" expand="block">Delete</ion-button>
   </form>
+  
 </ion-content>
