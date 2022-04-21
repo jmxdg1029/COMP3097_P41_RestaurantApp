@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Restaurant } from '../model/restaurant';
 import restaurants from '../storage/restaurants';
+import { Storage } from '@ionic/storage';
 
 
 @Injectable({
