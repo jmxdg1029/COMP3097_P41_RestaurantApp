@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router} from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { Restaurant } from '../model/restaurant';
+import { RestaurantService } from '../shared/restaurant.service';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +12,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsPage implements OnInit {
 
-  constructor() { }
+  restaurant: Restaurant;
+  restaurantForm: FormGroup;
 
-  ngOnInit() {
+  constructor(private db: RestaurantService, private router: Router, private formBuilder: FormBuilder, private actRoute: ActivatedRoute) { 
+    db.getRestaurantID(actRoute.snapshot.params.id).then(resaurant => {
+      this.restaurant = resaurant
+      this.restaurantForm = this.formBuilder.group({
+        name:[this.restaurant.name],
+        address:[this.restaurant.address],
+        description:[this.restaurant.description],
+        phoneNum:[this.restaurant.phoneNum],
+        tags:[this.restaurant.tags],
+        rating:[this.restaurant.rating]
+      })
+    })
+  }
+
+  getControlLabel(type:string){
+    return this.restaurantForm.controls[type].value
+  }
+
+  async ngOnInit() {
+    await this.db.init()
   }
 
 }
