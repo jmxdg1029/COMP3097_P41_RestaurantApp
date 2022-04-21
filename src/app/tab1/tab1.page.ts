@@ -13,19 +13,22 @@ import { ViewWillEnter } from '@ionic/angular';
 
 export class Tab1Page implements OnInit, ViewWillEnter {
 
-  restaurants: Restaurant[] = []
+  restaurants: Restaurant [] = [ ]
 
-  constructor(private database: RestaurantService, private router: Router) { 
-  }
+  constructor(private database: RestaurantService, private router: Router) { }
 
   async ngOnInit() {
-    // TODO: Fix This, gets called too many times, not efficient
+
     await this.database.init()
+
   }
 
   async ionViewWillEnter() {
+
     const restaurants = await this.database.getRestaurants()
+
     this.restaurants = restaurants
+    
   }
 
 }
