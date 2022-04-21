@@ -1,38 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Restaurant
-    </ion-title>
-    <ion-button [routerLink]="['/add-restaurant']"><ion-icon slot="start" name="add"></ion-icon></ion-button>
+    <ion-row>
+      <ion-title>
+        Restaurant
+      </ion-title>
+      <ion-button [routerLink]="['/add-restaurant']">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <!-- List of Input Items -->
-<ion-list>
-  <ion-item *ngFor="let restaurant of restaurants">
-    <ion-label >{{ restaurant.name }}
-      <div *ngIf="restaurant.rating == 1">
-        <ion-icon name="star"></ion-icon>
-      </div>
-      <div *ngIf="restaurant.rating == 2">
-        <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
-      </div>
-      <div *ngIf="restaurant.rating == 3">
-        <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
-      </div>
-      <div *ngIf="restaurant.rating == 4">
-        <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
-      </div>
-      <div *ngIf="restaurant.rating == 5">
-        <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
-      </div>
-    </ion-label>
-    <ion-buttons>
-      <ion-button [routerLink]="['/details',restaurant.id]" >
-        <ion-icon slot="start" name="ellipsis-vertical-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-item>
-</ion-list>
+  <ion-list>
+    <ion-item *ngFor="let restaurant of restaurants">
+      <ion-label>{{ restaurant.name }}
+        <div *ngIf="restaurant.rating == 1">
+          <ion-icon name="star"></ion-icon>
+        </div>
+        <div *ngIf="restaurant.rating == 2">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+        </div>
+        <div *ngIf="restaurant.rating == 3">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+        </div>
+        <div *ngIf="restaurant.rating == 4">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+        </div>
+        <div *ngIf="restaurant.rating == 5">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+        </div>
+      </ion-label>
+      <ion-buttons>
+        <ion-button [routerLink]="['/details',restaurant.id]">
+          <ion-icon slot="start" name="ellipsis-vertical-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
 </ion-content>
