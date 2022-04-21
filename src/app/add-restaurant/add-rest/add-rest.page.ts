@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder} from '@angular/forms';
 import { Restaurant } from 'src/app/model/restaurant';
 import {RestaurantService} from '../../shared/restaurant.service'
 import { NavController } from '@ionic/angular';
@@ -17,12 +17,12 @@ export class AddRestPage implements OnInit {
 
   async ngOnInit() {
     this.restForm = this.formBuilder.group({
-      name:['', Validators.required],
-      address:['', Validators.required],
-      phone:['', Validators.required],
-      description:['', Validators.required],
-      tags:['', Validators.required]
-
+      name:[''],
+      address:[''],
+      phone:[''],
+      description:[''],
+      tags:[''],
+      rating:[0]
     })
     await this.db.init()
   }
@@ -37,7 +37,8 @@ export class AddRestPage implements OnInit {
       address:this.restForm.value.address,
       phoneNum: this.restForm.value.phone,
       description: this.restForm.value.description,
-      tags:this.restForm.value.tags
+      tags:this.restForm.value.tags,
+      rating: this.restForm.value.rating
     } as Restaurant)
     this.goBack()
   }
