@@ -21,3 +21,5 @@ let restaurants: Restaurant[] = [
         rating: 4
       }
 ]
+
+export default restaurants;
