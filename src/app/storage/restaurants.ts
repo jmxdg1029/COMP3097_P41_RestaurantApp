@@ -19,6 +19,16 @@ let restaurants: Restaurant[] = [
         description: "They make some pretty good burgers",
         tags: "American",
         rating: 4
+      },
+      
+      {
+        id: 3,
+        name: "Pizza Pizza",
+        address: "155 Holland Street",
+        phoneNum: "2893386102",
+        description: "Great dipping sauce like the creamy garlic",
+        tags: "Pizza",
+        rating: 5
       }
 ]
 
