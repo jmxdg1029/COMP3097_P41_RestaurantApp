@@ -7,14 +7,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Search</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-searchbar [(ngModel)]="search" (ngModelChange)="searchRests()" color="success"></ion-searchbar>
 
-  <ion-toolbar>
-    <ion-searchbar color="dark"></ion-searchbar>
-  </ion-toolbar>
-
+  <ion-list>
+    <ion-item *ngFor="let restaurants of searchRest">
+      <ion-label>{{restaurants.name}}</ion-label>
+      <ion-buttons>
+        <ion-button [routerLink]="['/details',restaurants.id]">
+          <ion-icon slot="start" name="ellipsis-vertical-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
 </ion-content>

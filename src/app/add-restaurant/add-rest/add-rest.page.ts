@@ -27,7 +27,7 @@ export class AddRestPage implements OnInit {
     await this.db.init()
   }
 
-  goBack(){
+  prevPage(){
     this.navController.back()
   }
 
@@ -40,7 +40,7 @@ export class AddRestPage implements OnInit {
       tags:this.restForm.value.tags,
       rating: this.restForm.value.rating
     } as Restaurant)
-    this.goBack()
+    this.prevPage()
   }
 
 }
